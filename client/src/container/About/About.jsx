@@ -11,15 +11,12 @@ const About = () => {
 
   useEffect(() => {
     const query = '*[_type == "abouts"]';
-    console.log(client);
 
     client.fetch(query).then((data) => {
-      console.log('data', data);
       setAbouts(data);
     });
   }, []);
 
-  console.log('about', abouts);
   return (
     <>
       <h2 className="head-text">I Know that <span>Good Development</span> <br />means  <span>Good Business</span></h2>

@@ -23,8 +23,6 @@ const Skills = () => {
     });
   }, []);
 
-  console.table('experiences', experiences);
-
   return (
     <>
       <h2 className="head-text">Skills & Experiences</h2>
