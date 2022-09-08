@@ -48,7 +48,7 @@
     // padding: 7rem 0
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 600px) {
     padding: 6rem 1rem 2rem;
   }
 }
@@ -67,6 +67,10 @@
   @media screen and (max-width: 1200px) {
     width: 100%;
     margin-right: 0rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    margin: 0;
   }
 }
 
