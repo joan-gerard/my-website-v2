@@ -102,7 +102,7 @@ const Footer = () => {
           <div className="app__flex">
             <input className="p-text" type="email" placeholder="Your Email*" name="email" value={email} onChange={handleChangeInput} />
           </div>
-          {!emailIsGiven && (<p>Please, enter an email so I can get back to you!</p>)}
+          {!emailIsGiven && (<p>Please, enter an email so I can get back to you! 🙂</p>)}
           {emailIsInvalid && (<p>Oops, email is invalid!</p>)}
           <div>
             <textarea
@@ -113,7 +113,7 @@ const Footer = () => {
               onChange={handleChangeInput}
             />
           </div>
-          {!messageIsGiven && (<p>Please, write sthg!</p>)}
+          {!messageIsGiven && (<p>It seems your message is empty!</p>)}
           <button type="button" className="p-text" onClick={handleSubmit}>{!loading ? 'Send Message' : 'Sending...'}</button>
         </div>
       ) : (
