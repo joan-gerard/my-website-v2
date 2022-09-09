@@ -10,15 +10,58 @@ const Footer = () => {
   const [formData, setFormData] = useState({ username: '', email: '', message: '' });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [emailIsInvalid, setEmailIsInvalid] = useState(false);
+  const [emailIsGiven, setEmailIsGiven] = useState(true);
+  const [messageIsGiven, setMessageIsGiven] = useState(true);
 
   const { username, email, message } = formData;
 
   const handleChangeInput = (e) => {
+    setEmailIsGiven(true);
+    setMessageIsGiven(true);
+    setEmailIsInvalid(false);
+
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  function validateEmail(userEmail) {
+    // eslint-disable-next-line
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(userEmail)) {
+      return (true);
+    }
+    // eslint-disable-next-line
+    setEmailIsInvalid(true)
+    return (false);
+  }
+
   const handleSubmit = () => {
+    if (formData.message === '') setMessageIsGiven(false);
+
+    if (formData.email === '') {
+      setEmailIsGiven(false);
+    } else if (formData.message === '') {
+      setMessageIsGiven(false);
+      return;
+    }
+    // if (formData.email === '') {
+    //   setEmailIsGiven(false);
+    //   return;
+    // }
+    // if (formData.message === '') {
+    //   setMessageIsGiven(false);
+    //   return;
+    // }
+    if (formData.email === '') {
+      setEmailIsGiven(false);
+      return;
+    }
+    if (formData.message === '') {
+      setMessageIsGiven(false);
+      return;
+    }
+    if (formData.email !== '' && !validateEmail(formData.email)) return;
+
     setLoading(true);
 
     const contact = {
@@ -57,17 +100,20 @@ const Footer = () => {
             <input className="p-text" type="text" placeholder="Your Name" name="username" value={username} onChange={handleChangeInput} />
           </div>
           <div className="app__flex">
-            <input className="p-text" type="email" placeholder="Your Email" name="email" value={email} onChange={handleChangeInput} />
+            <input className="p-text" type="email" placeholder="Your Email*" name="email" value={email} onChange={handleChangeInput} />
           </div>
+          {!emailIsGiven && (<p>Please, enter an email so I can get back to you!</p>)}
+          {emailIsInvalid && (<p>Oops, email is invalid!</p>)}
           <div>
             <textarea
               className="p-text"
-              placeholder="Your Message"
+              placeholder="Your Message*"
               value={message}
               name="message"
               onChange={handleChangeInput}
             />
           </div>
+          {!messageIsGiven && (<p>Please, write sthg!</p>)}
           <button type="button" className="p-text" onClick={handleSubmit}>{!loading ? 'Send Message' : 'Sending...'}</button>
         </div>
       ) : (
