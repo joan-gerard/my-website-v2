@@ -35,7 +35,6 @@ const Header = () => (
             <h1 className="head-text">Joan</h1>
           </div>
         </div>
-
         <div className="tag-cmp2 app__flex">
           <p className="p-text spacing">PRINCE2/AGILE</p>
           <p className="p-text spacing">CAPM CERTIFIED</p>
