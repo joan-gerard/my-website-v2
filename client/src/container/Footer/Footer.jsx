@@ -5,6 +5,7 @@ import { images } from '../../constants';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { client } from '../../client';
 import './Footer.scss';
+import { getCurrentDate, validateEmail } from '../../utils';
 
 const Footer = () => {
   const [formData, setFormData] = useState({ username: '', email: '', message: '' });
@@ -25,16 +26,6 @@ const Footer = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  function validateEmail(userEmail) {
-    // eslint-disable-next-line
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(userEmail)) {
-      return (true);
-    }
-    // eslint-disable-next-line
-    setEmailIsInvalid(true)
-    return (false);
-  }
-
   const handleSubmit = () => {
     if (formData.message === '') setMessageIsGiven(false);
 
@@ -44,14 +35,6 @@ const Footer = () => {
       setMessageIsGiven(false);
       return;
     }
-    // if (formData.email === '') {
-    //   setEmailIsGiven(false);
-    //   return;
-    // }
-    // if (formData.message === '') {
-    //   setMessageIsGiven(false);
-    //   return;
-    // }
     if (formData.email === '') {
       setEmailIsGiven(false);
       return;
@@ -60,15 +43,18 @@ const Footer = () => {
       setMessageIsGiven(false);
       return;
     }
-    if (formData.email !== '' && !validateEmail(formData.email)) return;
+    if (formData.email !== '' && !validateEmail(formData.email, setEmailIsInvalid)) return;
 
     setLoading(true);
+
+    const date = getCurrentDate();
 
     const contact = {
       _type: 'contact',
       name: formData.username,
       email: formData.email,
       message: formData.message,
+      date,
     };
 
     client.create(contact)
@@ -146,5 +132,5 @@ const Footer = () => {
 export default AppWrap(
   MotionWrap(Footer, 'app__footer'),
   'contact',
-  'app__whitebg',
+  '.app__primarybg',
 );

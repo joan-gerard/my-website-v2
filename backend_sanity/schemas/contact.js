@@ -18,5 +18,10 @@ export default {
       title: "Message",
       type: "text",
     },
+    {
+      name: "date",
+      title: "Date",
+      type: "string",
+    },
   ],
 };
