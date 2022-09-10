@@ -25,6 +25,11 @@
   align-items: center;
 }
 
+.app__flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
 .app__wrapper {
   flex: 1;
   width: 100%;
@@ -183,7 +188,6 @@
 
 @media screen and (max-width: 500px) {
   .app__navigation,
-
   .copyright {
     padding: 2rem;
   }
