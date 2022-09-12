@@ -20,9 +20,3 @@
   scroll-behavior: smooth;
 }
 
-*,
-html,
-body,
-#root {
-  overflow-x: hidden;
-}
