@@ -19,3 +19,9 @@
   margin: 0;
   scroll-behavior: smooth;
 }
+
+html,
+body,
+#root {
+  overflow-x: hidden;
+}
