@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import './About.scss';
@@ -23,8 +23,8 @@ const About = () => {
 
       <div className="app__profiles">
         {abouts.map((about, index) => (
-          <div
-            // whileInView={{ opacity: 1 }}
+          <motion.div
+            whileInView={{ opacity: 1 }}
             // whileHover={{ scale: 1.1 }}
             // transition={{ duration: 0.5, type: 'tween' }}
             className="app__profile-item"
@@ -34,7 +34,7 @@ const About = () => {
             {/* <h2 className="bold-text" style={{ marginTop: 20 }}>{about.title}</h2> */}
             <p className="p-text-about" style={{ marginTop: 10 }}>{about.description}</p>
             <p className="p-text-about" style={{ marginTop: 10 }}>{about.description2}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </>
