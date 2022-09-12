@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 // import { BsInstagram, BsTwitter } from 'react-icons/bs';
 // import { FaFacebookF } from 'react-icons/fa';
 
@@ -33,6 +34,7 @@ const Navbar = () => {
           <motion.div
             whileInView={{ x: [300, 0] }}
             transition={{ duration: 0.85, ease: 'easeOut' }}
+            className="app__navbar-menu-list"
           >
             <HiX onClick={() => setToggle(false)} />
             <ul>
@@ -44,6 +46,18 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
+            <div className="app__navbar-menu-socials">
+              <a href="https://www.linkedin.com/in/joangerard/" target="_blank" rel="noopener noreferrer" className="app__social-link">
+                <div>
+                  <FaLinkedinIn />
+                </div>
+              </a>
+              <a href="https://github.com/joan-gerard" target="_blank" rel="noopener noreferrer" className="app__social-link">
+                <div>
+                  <FaGithub />
+                </div>
+              </a>
+            </div>
           </motion.div>
         )}
       </div>

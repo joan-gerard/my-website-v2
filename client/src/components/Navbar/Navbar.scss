@@ -100,7 +100,7 @@
     color: var(--white-color);
   }
 
-  div {
+  .app__navbar-menu-list {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -113,8 +113,8 @@
     height: 100vh;
     
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    justify-content: flex-start;
+    // align-items: flex-end;
     flex-direction: column;
     
     background: url('../../assets/bgWhite.png');
@@ -125,18 +125,19 @@
     /* top box shadow */
     box-shadow: 0px 0px 20px rgba(168, 168, 168, 0.15);
 
-    svg {
+    & > svg {
       width: 35px;
       height: 35px;
       color: var(--secondary-color);
-      margin: 0.5rem 1rem;
+      margin: 0.5rem 0;
+      right: 0;
     }
 
     ul {
       list-style: none;
       margin: 0;
       padding: 0;
-      height: 100%;
+      // height: 100%;
       width: 100%;
 
       display: flex;
