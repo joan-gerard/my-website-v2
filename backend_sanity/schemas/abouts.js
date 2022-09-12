@@ -4,9 +4,10 @@ export default {
   type: "document",
   fields: [
     {
-      name: "title",
-      title: "Title",
-      type: "string",
+      name: 'priority',
+      title: 'Priority',
+      type: 'number',
+      validation: (Rule) => Rule.min(0).integer().positive(),
     },
     {
       name: "description",
@@ -14,12 +15,9 @@ export default {
       type: "string",
     },
     {
-      name: "imgUrl",
-      title: "ImgUrl",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
+      name: "description2",
+      title: "Description2",
+      type: "string",
     },
   ],
 };

@@ -6,21 +6,21 @@ import './SocialMedia.scss';
 
 const SocialMedia = () => (
   <div className="app__social">
-    <div>
-      <a href="https://www.linkedin.com/in/joangerard/" className="app__social-link">
+    <a href="https://www.linkedin.com/in/joangerard/" className="app__social-link">
+      <div>
         <FaLinkedinIn />
-      </a>
-    </div>
-    <div>
-      <a href="https://github.com/joan-gerard" className="app__social-link">
+      </div>
+    </a>
+    <a href="https://github.com/joan-gerard" className="app__social-link">
+      <div>
         <FaGithub />
-      </a>
-    </div>
-    <div>
-      <a href="mailto:joan-gerard@outlook.com" className="app__social-link">
+      </div>
+    </a>
+    <a href="mailto:joan-gerard@outlook.com" className="app__social-link">
+      <div>
         <AiFillMail />
-      </a>
-    </div>
+      </div>
+    </a>
   </div>
 );
 
