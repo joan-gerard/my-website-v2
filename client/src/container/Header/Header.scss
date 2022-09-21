@@ -301,14 +301,21 @@
     height: 90%;
   }
 
-  @media screen and (max-width: 1200px) {
-    margin: 2rem 0;
+  @media screen and (max-width: 520px) {
+    margin: 1rem 0;
   }
   @media screen and (max-width: 900px) {
     width: 60%;
     margin: 2rem 0 1rem 0;
   }
-  @media screen and (max-width: 520px) {
-    margin: 1rem 0;
+  @media screen and (max-width: 1200px) {
+    margin: 2rem 0;
+  }
+  @media screen and (min-width: 1201px) {
+    margin: 0;
+    img {
+      width: 80%;
+      margin: auto;
+    }
   }
 }
