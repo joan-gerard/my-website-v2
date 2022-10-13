@@ -28,13 +28,11 @@ const Work = () => {
       const filteredTagsKeys = Object.keys(filteredTagsCount);
       const updatedFilteredTagsCount = { ...filteredTagsCount };
 
-      projects.map((project) =>
-        project.tags.forEach((tag) => {
+      projects.map((project) => project.tags.forEach((tag) => {
           if (filteredTagsKeys.includes(tag)) {
             updatedFilteredTagsCount[tag] += 1;
           }
-        }),
-      );
+      }));
       updatedFilteredTagsCount.All = projects.length;
       setFilteredTagsCount(updatedFilteredTagsCount);
       projectsCounted.current = true;
@@ -164,5 +162,5 @@ const Work = () => {
 export default AppWrap(
   MotionWrap(Work, 'app__works'),
   'projects',
-  'app__primarybg'
+  'app__primarybg',
 );
