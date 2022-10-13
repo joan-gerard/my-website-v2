@@ -29,9 +29,9 @@ const Work = () => {
       const updatedFilteredTagsCount = { ...filteredTagsCount };
 
       projects.map((project) => project.tags.forEach((tag) => {
-          if (filteredTagsKeys.includes(tag)) {
-            updatedFilteredTagsCount[tag] += 1;
-          }
+        if (filteredTagsKeys.includes(tag)) {
+          updatedFilteredTagsCount[tag] += 1;
+        }
       }));
       updatedFilteredTagsCount.All = projects.length;
       setFilteredTagsCount(updatedFilteredTagsCount);
