@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useRef } from "react";
-import { AiFillEye, AiFillGithub } from "react-icons/ai";
-import { motion } from "framer-motion";
+import React, { useState, useEffect, useRef } from 'react';
+import { AiFillEye, AiFillGithub } from 'react-icons/ai';
+import { motion } from 'framer-motion';
 
-import { AppWrap, MotionWrap } from "../../wrapper";
-import { urlFor, client } from "../../client";
-import "./Projects.scss";
+import { AppWrap, MotionWrap } from '../../wrapper';
+import { urlFor, client } from '../../client';
+import './Projects.scss';
 
 const Work = () => {
   const [projects, setProjects] = useState([]);
   const [filterProjects, setFilterProjects] = useState([]);
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeFilter, setActiveFilter] = useState('All');
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
 
   const projectsCounted = useRef(false);
@@ -20,7 +20,7 @@ const Work = () => {
     MongoDB: 0,
     Apollo: 0,
     GraphQL: 0,
-    "Next.js": 0,
+    'Next.js': 0,
   });
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const Work = () => {
           if (filteredTagsKeys.includes(tag)) {
             updatedFilteredTagsCount[tag] += 1;
           }
-        })
+        }),
       );
       updatedFilteredTagsCount.All = projects.length;
       setFilteredTagsCount(updatedFilteredTagsCount);
@@ -57,7 +57,7 @@ const Work = () => {
     setTimeout(() => {
       setAnimateCard([{ y: 0, opacity: 1 }]);
 
-      if (item === "All") {
+      if (item === 'All') {
         setFilterProjects(projects);
       } else {
         setFilterProjects(projects.filter((work) => work.tags.includes(item)));
@@ -83,7 +83,7 @@ const Work = () => {
               key={index}
               onClick={() => handleWorkFilter(item)}
               className={`app__work-filter-item app__flex p-text ${
-                activeFilter === item ? "item-active" : ""
+                activeFilter === item ? 'item-active' : ''
               }`}
             >
               {item}
@@ -107,7 +107,7 @@ const Work = () => {
                 whileHover={{ opacity: [0, 1] }}
                 transition={{
                   duration: 0.25,
-                  ease: "easeInOut",
+                  ease: 'easeInOut',
                   staggerChildren: 0.5,
                 }}
                 className="app__work-hover app__flex"
@@ -162,7 +162,7 @@ const Work = () => {
 };
 
 export default AppWrap(
-  MotionWrap(Work, "app__works"),
-  "projects",
-  "app__primarybg"
+  MotionWrap(Work, 'app__works'),
+  'projects',
+  'app__primarybg'
 );
