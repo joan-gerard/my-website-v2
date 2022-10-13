@@ -157,8 +157,11 @@
 .app__work-content {
   padding: 0.5rem;
   width: 100%;
+  height: 305px;
   position: relative;
   flex-direction: column;
+  // background-color: red;
+  justify-content: space-between;
 
   h4 {
     margin-top: 1rem;
@@ -188,4 +191,15 @@
 
     // top: -25px;
   }
+}
+
+.project__flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project__flex div h4 {
+  display: flex;
+  justify-content: center;
 }
